@@ -18,8 +18,8 @@ read_plumber_log <- function(log_file) {
                                 "execution_time"))
 }
 
-
-
+# Config ----
+config <- config::get()
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(
@@ -71,13 +71,13 @@ ui <- dashboardPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output, session) {
-  log_data <- reactivePoll(1000, 
+  log_data <- reactivePoll(5000, 
                            checkFunc = function(){
-                             files <- dir_ls("../logs")
+                             files <- dir_ls(config$log_dir)
                              file_info(files)$modification_time
                            },
                            valueFunc = function() {
-                             files <- dir_ls("../logs")
+                             files <- dir_ls(config$log_dir)
                              purrr::map_df(files, read_plumber_log)
                            }, session = session)
   

@@ -1,0 +1,4 @@
+HOST=http://localhost:9150
+$(HOST)/delay?max_s=1&fail=0.5
+$(HOST)/plot
+$(HOST)/echo?msg=hi%20there
