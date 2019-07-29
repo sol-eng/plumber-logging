@@ -1,0 +1,13 @@
+name: logged-api
+title: logged-api
+username: james
+account: james
+server: ec2-34-229-177-179.compute-1.amazonaws.com
+hostUrl: http://ec2-34-229-177-179.compute-1.amazonaws.com:3939/__api__
+appId: 1
+bundleId: 11
+url: http://ec2-34-229-177-179.compute-1.amazonaws.com:3939/content/1/
+when: 1564441589.51671
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: app.R|log-eda.nb.html|log-eda.Rmd|run-app.R|urls.txt|logs/plumber_147b86e9840ca.log|logs/plumber_6d6f49c92ed0.log

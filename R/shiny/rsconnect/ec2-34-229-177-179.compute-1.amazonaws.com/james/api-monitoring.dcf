@@ -1,0 +1,12 @@
+name: api-monitoring
+title: api-monitoring
+username: james
+account: james
+server: ec2-34-229-177-179.compute-1.amazonaws.com
+hostUrl: http://ec2-34-229-177-179.compute-1.amazonaws.com:3939/__api__
+appId: 4
+bundleId: 12
+url: http://ec2-34-229-177-179.compute-1.amazonaws.com:3939/content/4/
+when: 1564442696.48306
+asMultiple: FALSE
+asStatic: FALSE
