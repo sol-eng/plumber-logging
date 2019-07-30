@@ -50,9 +50,9 @@ Hash=f8a3bcc800d613797f1dfdf8ef4f0bfc
 
 [R/Package/Rcpp]
 Package=Rcpp
-Version=1.0.1
+Version=1.0.2
 Source=CRAN
-Hash=94bf4b635dd6abac1765cff90ba98235
+Hash=c25fa7d5684fa7001ddfea3755243975
 
 [R/Package/askpass]
 Package=askpass
@@ -113,6 +113,12 @@ Package=colorspace
 Version=1.4-1
 Source=CRAN
 Hash=c25d49739abb6ebf4b3d0c3565574226
+
+[R/Package/config]
+Package=config
+Version=0.3
+Source=CRAN
+Hash=7a15075ad1798112b35de17b8de84dbc
 
 [R/Package/crayon]
 Package=crayon
@@ -321,6 +327,12 @@ Package=markdown
 Version=1.0
 Source=CRAN
 Hash=4584a57f565dd7987d59dda3a02cfb41
+
+[R/Package/memoise]
+Package=memoise
+Version=1.1.0
+Source=CRAN
+Hash=22ca9b285c10f5dd8c4d1e90231ce558
 
 [R/Package/mgcv]
 Package=mgcv
@@ -563,9 +575,9 @@ Hash=272daf1b3ba287a42d02e33c89870eae
 
 [R/Package/testthat]
 Package=testthat
-Version=2.2.0
+Version=2.2.1
 Source=CRAN
-Hash=8856f0dafd3b9dd8b7bcf028336d14b5
+Hash=3e86adb988cb96c5b30b01ec56719ac4
 
 [R/Package/tibble]
 Package=tibble
