@@ -187,7 +187,9 @@ server <- function(input, output, session) {
       ggplot(aes(x = fct_reorder(user, n),y = n)) +
       geom_col() +
       theme_bw() +
-      coord_flip()
+      coord_flip() +
+      labs(x = "Users",
+           y = "Requests")
   })
 }
 
