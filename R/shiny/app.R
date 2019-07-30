@@ -71,14 +71,25 @@ ui <- dashboardPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output, session) {
-  log_data <- reactivePoll(5000, 
-                           checkFunc = function(){
+  # Create memoised read_plumber_log function to cache results
+  mem_read_plumber_log <- memoise::memoise(function(file, timestamp) {
+    read_plumber_log(file)
+  })
+  
+  observe({
+    # Invalidate memoise cache every 30 minutes to avoid cache explosion
+    invalidateLater(30*60*1000)
+    memoise::forget(mem_read_plumber_log)
+  })
+  
+  log_data <- reactivePoll(5000, # 5 seconds 
+                           checkFunc = function() {
                              files <- dir_ls(config$log_dir)
                              file_info(files)$modification_time
                            },
                            valueFunc = function() {
                              files <- dir_ls(config$log_dir)
-                             purrr::map_df(files, read_plumber_log)
+                             purrr::map2_df(files, file_info(files)$modification_time, mem_read_plumber_log)
                            }, session = session)
   
   filtered_log <- reactive({
