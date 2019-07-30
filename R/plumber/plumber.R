@@ -7,6 +7,8 @@ library(plumber)
 
 #* @apiTitle Logging
 
+#* @apiDescription Simple example API for implementing logging with Plumber
+
 #* Simulate a long running process and log
 #* @param max_s Maximum number of seconds a process will sleep for
 #* @get /delay
