@@ -32,4 +32,4 @@ pr$registerHooks(
   )
 )
 
-pr$run()
+pr

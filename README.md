@@ -65,7 +65,7 @@ pr$registerHooks(
   )
 )
 
-pr$run()
+pr
 ```
 
 In this example, the [tictoc](http://collectivemedia.github.io/tictoc/)
