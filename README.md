@@ -90,7 +90,9 @@ following information:
   - Execution Time: The amount of time from when the request received
     until the reponse was generated
 
-An example log file is provided
+This log format is loosely inspired by the [NCSA Common log
+format](https://en.wikipedia.org/wiki/Common_Log_Format). An example log
+file is provided
     below:
 
     INFO [2019-07-27 10:34:28] 127.0.0.1 "Siege/4.0.4" localhost:9207 GET /echo 200 0.0380000000000003
