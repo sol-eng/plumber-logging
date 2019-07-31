@@ -3,4 +3,3 @@ default:
   
 rsconnect:
   log_dir: /var/log/plumber
-  
