@@ -26,6 +26,11 @@ ui <- dashboardPage(
   dashboardHeader(title = "API Usage"),
   dashboardSidebar(disable = TRUE),
   dashboardBody(
+    tags$head(
+      tags$style(type="text/css",
+                 ".recalculating { opacity: 1.0; }"
+      ) 
+    ),
     fluidRow(
       valueBoxOutput("total_requests", width = 6),
       valueBoxOutput("requests_per_second", width = 6)
