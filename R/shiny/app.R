@@ -3,6 +3,8 @@ library(shiny)
 library(shinydashboard)
 library(fs)
 library(tidyverse)
+# Dependency of config.yml
+library(here)
 
 # Utils ----
 read_plumber_log <- function(log_file) {
@@ -87,7 +89,7 @@ server <- function(input, output, session) {
     memoise::forget(mem_read_plumber_log)
   })
   
-  log_data <- reactivePoll(5000, # 5 seconds 
+  log_data <- reactivePoll(1000, # 1 second
                            checkFunc = function() {
                              files <- dir_ls(config$log_dir)
                              file_info(files)$modification_time
