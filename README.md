@@ -47,7 +47,11 @@ if (!fs::dir_exists(config$log_dir)) fs::dir_create(config$log_dir)
 log_appender(appender_tee(tempfile("plumber_", config$log_dir, ".log")))
 
 convert_empty <- function(string) {
-  ifelse(string == "", "-", string)
+  if (string == "") {
+    "-"
+  } else {
+    string
+  }
 }
 
 pr <- plumb("plumber.R")
@@ -61,6 +65,7 @@ pr$registerHooks(
     postroute = function(req, res) {
       end <- tictoc::toc(quiet = TRUE)
       # Log details about the request and the response
+      # TODO: Sanitize log details - perhaps in convert_empty
       log_info('{convert_empty(req$REMOTE_ADDR)} "{convert_empty(req$HTTP_USER_AGENT)}" {convert_empty(req$HTTP_HOST)} {convert_empty(req$REQUEST_METHOD)} {convert_empty(req$PATH_INFO)} {convert_empty(res$status)} {round(end$toc - end$tic, digits = getOption("digits", 5))}')
     }
   )
@@ -128,6 +133,14 @@ take advantage of this pattern on RStudio Connect:
 1.  Publish the Plumber API with logging enabled
 2.  Ensure that the log files are written to a persistent location with
     proper permissions (for example, `/var/log/plumber`)
+      - If necessary, create a directory that with read/write access for
+        the `rstudio-connect` group:
+    <!-- end list -->
+    ``` bash
+    sudo mkdir /var/log/plumber && \
+      sudo chown root:rstudio-connect /var/log/plumber && \
+      sudo chmod 770 /var/log/plumber
+    ```
 3.  Make sure the Shiny dashboard is configured to monitor the location
     of the Plumber log files (the [config R
     package](https://github.com/rstudio/config) is used in this example)

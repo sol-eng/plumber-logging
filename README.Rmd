@@ -99,6 +99,13 @@ used to take advantage of this pattern on RStudio Connect:
 1. Publish the Plumber API with logging enabled
 2. Ensure that the log files are written to a persistent location with proper
 permissions (for example, `/var/log/plumber`)
+    - If necessary, create a directory that with read/write access for the
+    `rstudio-connect` group:
+    ```bash
+    sudo mkdir /var/log/plumber && \
+      sudo chown root:rstudio-connect /var/log/plumber && \
+      sudo chmod 770 /var/log/plumber
+    ```
 3. Make sure the Shiny dashboard is configured to monitor the location of the
 Plumber log files (the [config R package](https://github.com/rstudio/config) is
 used in this example)
