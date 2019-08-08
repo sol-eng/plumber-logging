@@ -23,7 +23,6 @@ read_plumber_log <- function(log_file) {
 # Config ----
 config <- config::get()
 
-# Define UI for application that draws a histogram
 ui <- dashboardPage(
   dashboardHeader(title = "API Usage"),
   dashboardSidebar(disable = TRUE),
@@ -76,7 +75,6 @@ ui <- dashboardPage(
   )
 )
 
-# Define server logic required to draw a histogram
 server <- function(input, output, session) {
   # Create memoised read_plumber_log function to cache results
   mem_read_plumber_log <- memoise::memoise(function(file, timestamp) {
